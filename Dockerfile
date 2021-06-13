@@ -23,7 +23,7 @@ RUN apt-get update && apt-get install -y gcc
 # RUN apt remove -y python3-numpy
 # RUN pip3 install watchtower numpy pandas cython boto3 setuptools
 
-RUN conda install gdal=2.3.3
+RUN conda install gdal=3
 
 RUN pip install awscli boto3
 RUN pip install cython
@@ -34,5 +34,8 @@ WORKDIR /opt
 ENV G_INI=/opt/ini
 ENV G_LOG=/opt/log
 ENV G_TMP=/opt/tmp
+
+ENV PROJ_LIB=/opt/conda/share/proj
+ENV GDAL_DATA=/opt/conda/share/gdal
 
 ENTRYPOINT []
