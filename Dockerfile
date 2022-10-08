@@ -4,6 +4,7 @@
 # FROM geographica/gdal2:latest
 
 FROM continuumio/miniconda3:latest
+# FROM continuumio/miniconda3:4.11.0
 
 # FROM thinkwhere/gdal-python:3.7-ubuntu
 # FROM osgeo/gdal:ubuntu-small-latest
@@ -23,11 +24,14 @@ RUN apt-get update && apt-get install -y gcc
 # RUN apt remove -y python3-numpy
 # RUN pip3 install watchtower numpy pandas cython boto3 setuptools
 
-RUN conda install gdal=3
+RUN conda install -y python=3.8
+RUN conda install -y gdal
+RUN conda uninstall gdal
+RUN conda install -y gdal
 
-RUN pip install awscli boto3
-RUN pip install cython
-RUN pip install numpy pandas psycopg2
+# RUN pip install awscli boto3
+# RUN pip install numpy pandas psycopg2
+# RUN pip install cython
 
 WORKDIR /opt
 
@@ -39,3 +43,4 @@ ENV PROJ_LIB=/opt/conda/share/proj
 ENV GDAL_DATA=/opt/conda/share/gdal
 
 ENTRYPOINT []
+
