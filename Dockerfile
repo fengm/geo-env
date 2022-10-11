@@ -26,6 +26,8 @@ RUN apt-get update && apt-get install -y gcc
 
 RUN conda install -y python=3.8
 RUN conda install -y gdal
+
+# this is for fixing a weird issue with installing GDAL
 RUN conda uninstall gdal
 RUN conda install -y gdal
 
