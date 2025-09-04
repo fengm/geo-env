@@ -24,7 +24,7 @@ RUN apt-get update && apt-get install -y gcc
 # RUN apt remove -y python3-numpy
 # RUN pip3 install watchtower numpy pandas cython boto3 setuptools
 
-RUN conda install -y python=3.11
+RUN conda install -y python=3.13
 RUN conda install -y gdal
 
 # this is for fixing a weird issue with installing GDAL
